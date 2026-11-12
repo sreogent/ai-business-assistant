@@ -1,0 +1,343 @@
+/**
+ * AI Business Assistant - Seasonal & Festive Themes
+ * Exclusively configurable by Supreme Owner (Matvey Ibadlaev) & Developer
+ */
+
+/* ==========================================================================
+   0. КОРПОРАТИВНАЯ ВЫСОКОТЕХНОЛОГИЧНАЯ ТЕМА ПО УМОЛЧАНИЮ (DARK)
+   ========================================================================== */
+[data-theme="dark"] {
+    --bg-primary: #070a13;
+    --bg-secondary: rgba(13, 20, 36, 0.78);
+    --bg-card: rgba(17, 26, 46, 0.68);
+    --bg-card-hover: rgba(23, 35, 62, 0.85);
+    --bg-input: rgba(10, 16, 30, 0.75);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --border-color-hover: rgba(99, 102, 241, 0.45);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --primary-glow: rgba(99, 102, 241, 0.35);
+    --accent: #06b6d4;
+    --accent-glow: rgba(6, 182, 212, 0.35);
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+}
+
+[data-theme="dark"] body {
+    background-color: #070a13 !important;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.16) 0px, transparent 55%),
+        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.13) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(168, 85, 247, 0.11) 0px, transparent 55%),
+        radial-gradient(at 10% 50%, rgba(99, 102, 241, 0.06) 0px, transparent 40%) !important;
+    background-attachment: fixed !important;
+}
+
+[data-theme="dark"] .card {
+    background: rgba(17, 26, 46, 0.68);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="dark"] .logo-badge {
+    background: linear-gradient(135deg, #6366f1, #3b82f6, #06b6d4);
+    box-shadow: 0 0 18px rgba(99, 102, 241, 0.6);
+}
+
+/* ==========================================================================
+   1. ЗИМА — ЛЕДЯНОЕ СИЯНИЕ (WINTER)
+   ========================================================================== */
+[data-theme="winter"] {
+    --bg-primary: #070e1c;
+    --bg-secondary: #0c182c;
+    --bg-card: #11233d;
+    --bg-input: #091322;
+    --text-primary: #f0f9ff;
+    --text-secondary: #bae6fd;
+    --text-muted: #60a5fa;
+    --border-color: #1e3a5f;
+    --primary: #38bdf8;
+    --primary-hover: #0ea5e9;
+    --primary-glow: rgba(56, 189, 248, 0.35);
+    --accent: #818cf8;
+    --success: #34d399;
+    --warning: #facc15;
+    --danger: #f87171;
+    --shadow: 0 10px 30px -5px rgba(2, 6, 23, 0.6), 0 0 20px rgba(56, 189, 248, 0.1);
+}
+
+[data-theme="winter"] body {
+    background-image: 
+        radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 100% 40%, rgba(129, 140, 248, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 0% 80%, rgba(34, 211, 238, 0.08) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+[data-theme="winter"] .card {
+    border-color: rgba(56, 189, 248, 0.22);
+    box-shadow: 0 8px 25px rgba(3, 10, 26, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="winter"] .logo-badge {
+    background: linear-gradient(135deg, #0284c7, #38bdf8, #818cf8);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
+}
+
+/* ==========================================================================
+   2. НОВЫЙ ГОД — ПРАЗДНИЧНАЯ СКАЗКА (NEW YEAR)
+   ========================================================================== */
+[data-theme="new_year"] {
+    --bg-primary: #081510;
+    --bg-secondary: #0f221a;
+    --bg-card: #153225;
+    --bg-input: #0a1b14;
+    --text-primary: #fefce8;
+    --text-secondary: #d1fae5;
+    --text-muted: #86efac;
+    --border-color: #1e4a36;
+    --primary: #ef4444;
+    --primary-hover: #dc2626;
+    --primary-glow: rgba(239, 68, 68, 0.4);
+    --accent: #f59e0b;
+    --success: #10b981;
+    --warning: #fbbf24;
+    --danger: #f87171;
+    --shadow: 0 10px 30px -5px rgba(5, 20, 14, 0.7), 0 0 25px rgba(245, 158, 11, 0.12);
+}
+
+[data-theme="new_year"] body {
+    background-image: 
+        radial-gradient(circle at 50% -10%, rgba(239, 68, 68, 0.16) 0%, transparent 55%),
+        radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.14) 0%, transparent 40%),
+        radial-gradient(circle at 10% 70%, rgba(16, 185, 129, 0.12) 0%, transparent 45%);
+    background-attachment: fixed;
+}
+
+[data-theme="new_year"] .card {
+    border-color: rgba(245, 158, 11, 0.25);
+    box-shadow: 0 8px 25px rgba(4, 15, 10, 0.6), inset 0 1px 0 rgba(245, 158, 11, 0.12);
+}
+
+[data-theme="new_year"] .btn-primary {
+    background: linear-gradient(135deg, #dc2626, #ef4444, #f59e0b);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.45);
+}
+
+[data-theme="new_year"] .logo-badge {
+    background: linear-gradient(135deg, #15803d, #dc2626, #f59e0b);
+    box-shadow: 0 0 16px rgba(239, 68, 68, 0.5);
+}
+
+/* ==========================================================================
+   3. ВЕСНА — ПРОБУЖДЕНИЕ ПРИРОДЫ (SPRING)
+   ========================================================================== */
+[data-theme="spring"] {
+    --bg-primary: #06150e;
+    --bg-secondary: #0b2216;
+    --bg-card: #113121;
+    --bg-input: #081a11;
+    --text-primary: #f0fdf4;
+    --text-secondary: #bbf7d0;
+    --text-muted: #6ee7b7;
+    --border-color: #1a4d33;
+    --primary: #10b981;
+    --primary-hover: #059669;
+    --primary-glow: rgba(16, 185, 129, 0.35);
+    --accent: #eab308;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --shadow: 0 10px 30px -5px rgba(3, 18, 11, 0.65), 0 0 20px rgba(16, 185, 129, 0.12);
+}
+
+[data-theme="spring"] body {
+    background-image: 
+        radial-gradient(circle at 50% -10%, rgba(16, 185, 129, 0.16) 0%, transparent 60%),
+        radial-gradient(circle at 95% 40%, rgba(234, 179, 8, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 5% 85%, rgba(52, 211, 153, 0.1) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+[data-theme="spring"] .card {
+    border-color: rgba(16, 185, 129, 0.22);
+}
+
+[data-theme="spring"] .logo-badge {
+    background: linear-gradient(135deg, #059669, #10b981, #eab308);
+    box-shadow: 0 0 14px rgba(16, 185, 129, 0.45);
+}
+
+/* ==========================================================================
+   4. 8 МАРТА / ДЕНЬ ЖЕНЩИН & САКУРА (WOMEN'S DAY)
+   ========================================================================== */
+[data-theme="women_day"] {
+    --bg-primary: #130814;
+    --bg-secondary: #1d0d1f;
+    --bg-card: #29122c;
+    --bg-input: #18091a;
+    --text-primary: #fff1f2;
+    --text-secondary: #fbcfe8;
+    --text-muted: #f472b6;
+    --border-color: #4c1d4a;
+    --primary: #f43f5e;
+    --primary-hover: #e11d48;
+    --primary-glow: rgba(244, 63, 94, 0.4);
+    --accent: #c084fc;
+    --success: #34d399;
+    --warning: #fbbf24;
+    --danger: #fb7185;
+    --shadow: 0 10px 30px -5px rgba(19, 5, 20, 0.7), 0 0 25px rgba(244, 63, 94, 0.15);
+}
+
+[data-theme="women_day"] body {
+    background-image: 
+        radial-gradient(circle at 50% -10%, rgba(244, 63, 94, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 90% 30%, rgba(192, 132, 252, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 10% 75%, rgba(251, 113, 133, 0.1) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+[data-theme="women_day"] .card {
+    border-color: rgba(244, 63, 94, 0.25);
+    box-shadow: 0 8px 25px rgba(19, 5, 20, 0.6), inset 0 1px 0 rgba(244, 63, 94, 0.1);
+}
+
+[data-theme="women_day"] .btn-primary {
+    background: linear-gradient(135deg, #e11d48, #f43f5e, #c084fc);
+    box-shadow: 0 4px 18px rgba(244, 63, 94, 0.45);
+}
+
+[data-theme="women_day"] .logo-badge {
+    background: linear-gradient(135deg, #e11d48, #f43f5e, #c084fc);
+    box-shadow: 0 0 16px rgba(244, 63, 94, 0.5);
+}
+
+/* ==========================================================================
+   5. ЛЕТО И ОТДЫХ — ЛАЗУРНЫЙ ОКЕАН (SUMMER)
+   ========================================================================== */
+[data-theme="summer"] {
+    --bg-primary: #041221;
+    --bg-secondary: #081d33;
+    --bg-card: #0d2b4b;
+    --bg-input: #051628;
+    --text-primary: #f0fdf4;
+    --text-secondary: #bae6fd;
+    --text-muted: #7dd3fc;
+    --border-color: #14446f;
+    --primary: #0284c7;
+    --primary-hover: #0369a1;
+    --primary-glow: rgba(2, 132, 199, 0.38);
+    --accent: #f59e0b;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --shadow: 0 10px 30px -5px rgba(2, 12, 22, 0.7), 0 0 25px rgba(2, 132, 199, 0.14);
+}
+
+[data-theme="summer"] body {
+    background-image: 
+        radial-gradient(circle at 50% -10%, rgba(6, 182, 212, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 90% 25%, rgba(245, 158, 11, 0.13) 0%, transparent 40%),
+        radial-gradient(circle at 10% 80%, rgba(2, 132, 199, 0.12) 0%, transparent 45%);
+    background-attachment: fixed;
+}
+
+[data-theme="summer"] .card {
+    border-color: rgba(6, 182, 212, 0.22);
+}
+
+[data-theme="summer"] .logo-badge {
+    background: linear-gradient(135deg, #0284c7, #06b6d4, #f59e0b);
+    box-shadow: 0 0 16px rgba(2, 132, 199, 0.45);
+}
+
+/* ==========================================================================
+   6. ЗОЛОТАЯ ОСЕНЬ — УЮТНЫЙ ЯНТАРЬ (AUTUMN)
+   ========================================================================== */
+[data-theme="autumn"] {
+    --bg-primary: #140b06;
+    --bg-secondary: #1d1009;
+    --bg-card: #2b190e;
+    --bg-input: #170d07;
+    --text-primary: #fffbeb;
+    --text-secondary: #fed7aa;
+    --text-muted: #fb923c;
+    --border-color: #4a2915;
+    --primary: #ea580c;
+    --primary-hover: #c2410c;
+    --primary-glow: rgba(234, 88, 12, 0.38);
+    --accent: #d97706;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #dc2626;
+    --shadow: 0 10px 30px -5px rgba(18, 9, 4, 0.7), 0 0 25px rgba(234, 88, 12, 0.15);
+}
+
+[data-theme="autumn"] body {
+    background-image: 
+        radial-gradient(circle at 50% -10%, rgba(234, 88, 12, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 92% 35%, rgba(217, 119, 6, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 8% 80%, rgba(185, 28, 28, 0.1) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+[data-theme="autumn"] .card {
+    border-color: rgba(234, 88, 12, 0.25);
+    box-shadow: 0 8px 25px rgba(18, 9, 4, 0.6), inset 0 1px 0 rgba(234, 88, 12, 0.1);
+}
+
+[data-theme="autumn"] .btn-primary {
+    background: linear-gradient(135deg, #c2410c, #ea580c, #d97706);
+    box-shadow: 0 4px 18px rgba(234, 88, 12, 0.45);
+}
+
+[data-theme="autumn"] .logo-badge {
+    background: linear-gradient(135deg, #b91c1c, #ea580c, #d97706);
+    box-shadow: 0 0 16px rgba(234, 88, 12, 0.5);
+}
+
+/* ==========================================================================
+   PARTICLES CANVAS & OVERLAY
+   ========================================================================== */
+#theme-particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none !important;
+    z-index: 99990;
+    opacity: 0.88;
+}
+
+/* Theme selector pill in topbar / nav */
+.theme-owner-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.theme-owner-pill:hover {
+    background: var(--primary-glow);
+    border-color: var(--primary);
+    color: #fff;
+    transform: translateY(-1px);
+}

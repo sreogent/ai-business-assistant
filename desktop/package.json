@@ -1,0 +1,70 @@
+{
+  "name": "ai-business-assistant",
+  "version": "1.0.0",
+  "description": "AI Business Assistant — корпоративная платформа",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "kz.aibusiness.assistant",
+    "productName": "AI Business Assistant",
+    "copyright": "AI Business Assistant",
+    "directories": {
+      "output": "../dist"
+    },
+    "files": [
+      "main.js",
+      "splash.html",
+      "icon.ico",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../",
+        "to": "app",
+        "filter": [
+          "**/*",
+          "!desktop/**",
+          "!dist/**",
+          "!*.cs",
+          "!*.bat",
+          "!*.vbs",
+          "!*.ps1",
+          "!scratch/**",
+          "!node_modules/**"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "icon.ico",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowDirChange": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "AI Business Assistant",
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "deleteAppDataOnUninstall": false,
+      "license": null,
+      "language": "1049",
+      "artifactName": "AI-Business-Assistant-Setup-${version}.exe"
+    }
+  }
+}

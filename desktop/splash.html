@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Business Assistant</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+        body {
+            background: #070a13;
+            color: #f1f5f9;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Background ambient glow */
+        .ambient-glow {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, rgba(6, 182, 212, 0.12) 45%, transparent 70%);
+            filter: blur(60px);
+            animation: pulse-glow 3.5s ease-in-out infinite alternate;
+        }
+        @keyframes pulse-glow {
+            0% { transform: scale(0.85); opacity: 0.5; }
+            100% { transform: scale(1.15); opacity: 0.85; }
+        }
+        .splash-card {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 440px;
+            width: 90%;
+            padding: 44px 32px 36px;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(99, 102, 241, 0.25);
+        }
+        /* Glowing Atom Animation matching user's icon */
+        .atom-container {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .atom-core {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #38bdf8;
+            box-shadow: 0 0 20px #38bdf8, 0 0 35px #6366f1;
+            animation: core-pulse 1.8s ease-in-out infinite alternate;
+        }
+        .atom-ring {
+            position: absolute;
+            width: 90px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid rgba(56, 189, 248, 0.65);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+        }
+        .atom-ring:nth-child(1) {
+            transform: rotate(0deg);
+            animation: ring-spin-1 3s linear infinite;
+        }
+        .atom-ring:nth-child(2) {
+            transform: rotate(60deg);
+            border-color: rgba(99, 102, 241, 0.75);
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.45);
+            animation: ring-spin-2 3.5s linear infinite reverse;
+        }
+        .atom-ring:nth-child(3) {
+            transform: rotate(120deg);
+            border-color: rgba(168, 85, 247, 0.75);
+            box-shadow: 0 0 12px rgba(168, 85, 247, 0.45);
+            animation: ring-spin-3 4s linear infinite;
+        }
+        @keyframes core-pulse {
+            0% { transform: scale(0.85); box-shadow: 0 0 15px #38bdf8; }
+            100% { transform: scale(1.25); box-shadow: 0 0 30px #38bdf8, 0 0 50px #818cf8; }
+        }
+        @keyframes ring-spin-1 {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes ring-spin-2 {
+            0% { transform: rotate(60deg); }
+            100% { transform: rotate(420deg); }
+        }
+        @keyframes ring-spin-3 {
+            0% { transform: rotate(120deg); }
+            100% { transform: rotate(480deg); }
+        }
+        .app-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .app-subtitle {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 28px;
+            font-weight: 400;
+        }
+        .progress-bar-wrapper {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 14px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            width: 15%;
+            background: linear-gradient(90deg, #38bdf8, #6366f1, #a855f7);
+            border-radius: 999px;
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.85);
+            transition: width 0.35s ease;
+            position: relative;
+        }
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .status-text {
+            font-size: 12px;
+            color: #94a3b8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            height: 22px;
+        }
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 10px #10b981;
+            animation: dot-pulse 1s infinite alternate;
+        }
+        @keyframes dot-pulse {
+            0% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+        .footer-badge {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #475569;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient-glow"></div>
+    <div class="splash-card">
+        <div class="atom-container">
+            <div class="atom-ring"></div>
+            <div class="atom-ring"></div>
+            <div class="atom-ring"></div>
+            <div class="atom-core"></div>
+        </div>
+        <div class="app-title">AI Business Assistant</div>
+        <div class="app-subtitle">Интеллектуальная коммерческая платформа</div>
+
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+
+        <div class="status-text">
+            <span class="status-dot"></span>
+            <span id="statusLabel">Инициализация модулей...</span>
+        </div>
+
+        <div class="footer-badge">v1.0.0 • Desktop Client</div>
+    </div>
+
+    <script>
+        const fill = document.getElementById('progressFill');
+        const label = document.getElementById('statusLabel');
+
+        const steps = [
+            { pct: 30, text: 'Проверка окружения и MySQL...' },
+            { pct: 60, text: 'Запуск локального сервера платформы...' },
+            { pct: 85, text: 'Инициализация AI-модулей и сессий...' },
+            { pct: 100, text: 'Готово! Вход в систему...' }
+        ];
+
+        let stepIndex = 0;
+        function nextStep() {
+            if (stepIndex < steps.length) {
+                fill.style.width = steps[stepIndex].pct + '%';
+                label.textContent = steps[stepIndex].text;
+                stepIndex++;
+                setTimeout(nextStep, 500);
+            }
+        }
+        setTimeout(nextStep, 200);
+    </script>
+</body>
+</html>
