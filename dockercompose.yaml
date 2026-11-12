@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  web:
+    image: php:8.2-apache
+    restart: always
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ai_business_assistant
+      DB_USER: appuser
+      DB_PASS: secretpassword123
+      APP_ENV: production
+      APP_SECRET: a8f4c2b994821daee204859cb8734e12e847321a73cd8e7623bf12b596d
+    depends_on:
+      db:
+        condition: service_healthy
+    command: >
+      bash -c "
+        apt-get update && apt-get install -y git libpng-dev libzip-dev unzip &&
+        docker-php-ext-install pdo pdo_mysql mysqli gd zip &&
+        a2enmod rewrite &&
+        if [ ! -f /var/www/html/index.php ]; then
+          git clone https://github.com/sreogent/ai-business-assistant.git /tmp/app &&
+          cp -rn /tmp/app/. /var/www/html/ &&
+          rm -rf /tmp/app;
+        fi &&
+        rm -f /var/www/html/setup.lock &&
+        chown -R www-data:www-data /var/www/html &&
+        chmod -R 775 /var/www/html/uploads &&
+        apache2-foreground
+      "
+    volumes:
+      - app_data:/var/www/html
+
+  db:
+    image: mariadb:10.11
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootsecretpassword
+      MYSQL_DATABASE: ai_business_assistant
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: secretpassword123
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-psecretpassword123"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  app_data:
+  db_data:
